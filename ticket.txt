@@ -1,0 +1,47 @@
+from abc import ABC, abstractmethod
+class Ticket(ABC):
+    @abstractmethod
+    def book_ticket(self):
+        pass
+class MakeMyTrip(Ticket):
+    def book_ticket(self, name, phone_number, email_id, journey_date):
+        print("Thank you for booking from MakeMyTrip.")
+        print(f"Journey Date: {journey_date}")
+class IRCTC(Ticket):
+    def book_ticket(self, name, phone_number, email_id, journey_date):
+        round_trip = input("Is it a round trip? (yes/no): ")
+        if round_trip.lower() == 'yes':
+            print("Thank you for choosing IRCTC.")
+            print("Round trip option selected.")
+        else:
+            print("Thank you for choosing IRCTC.")
+class Indigo:
+    def _init_(self, name, phone_number, email_id, journey_date):
+        self.name = name
+        self.phone_number = phone_number
+        self.email_id = email_id
+        self.journey_date = journey_date
+    def choose_transport(self):
+        mode_of_transport = input("Which mode of transport do you want to go in? (train/flight/bus): ")
+        print("Thank you for choosing Indigo.")
+name = input("Enter your name: ")
+phone_number = input("Enter your phone number: ")
+email_id = input("Enter your email id: ")
+journey_date = input("Enter your journey date: ")
+make_my_trip = MakeMyTrip()
+make_my_trip.book_ticket(name, phone_number, email_id, journey_date)
+irctc = IRCTC()
+irctc.book_ticket(name, phone_number, email_id, journey_date)
+indigo = Indigo(name, phone_number, email_id, journey_date)
+indigo.choose_transport()                                        op:Enter your name: darshini
+Enter your phone number: 6305585767
+Enter your email id: yeleti@gmail.com
+Enter your journey date: 24
+Thank you for booking from MakeMyTrip.
+Journey Date: 24
+Is it a round trip? (yes/no): yes
+Thank you for choosing IRCTC.
+Round trip option selected.
+Which mode of transport do you want to go in? (train/flight/bus): flight
+Thank you for choosing Indigo.
+>
